@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Blokuj pliki techniczne
+Disallow: /scripts.js
+Disallow: /style.css
+
+# Sitemap
+Sitemap: https://www.sar-bud.pl/sitemap.xml

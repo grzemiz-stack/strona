@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – SAR-BUD Michał Sarnecki | Firma Budowlana Śrem</title>
+  <meta name="description" content="Skontaktuj się z firmą SAR-BUD Michał Sarnecki – Michał Sarnecki. Telefon, e-mail i lokalizacja. Działamy w Śremie, Gostyniu i Środzie Wielkopolskiej." />
+  <meta name="keywords" content="kontakt firma budowlana Śrem, Michał Sarnecki telefon, firma budowlana Śrem adres, wycena budowlana Śrem" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a; --dark: #111318; --panel: #16191f; --steel: #1e2229;
+      --gold: #c9a84c; --gold-light: #e0be7a; --white: #f5f3ef; --muted: #8a8f99;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 72px; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    .page-hero { padding: 160px 48px 80px; background: var(--dark); border-bottom: 1px solid rgba(201,168,76,0.1); position: relative; overflow: hidden; }
+    .page-hero::after { content: 'KONTAKT'; position: absolute; right: -20px; bottom: -20px; font-family: 'Bebas Neue', sans-serif; font-size: 14rem; letter-spacing: -0.04em; color: rgba(201,168,76,0.04); pointer-events: none; line-height: 1; }
+    .page-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 7rem); letter-spacing: 0.03em; line-height: 0.95; }
+    .page-sub { margin-top: 20px; max-width: 520px; font-size: 1rem; font-weight: 300; line-height: 1.8; color: var(--muted); }
+
+    /* CONTACT MAIN */
+    .contact-main {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      min-height: 600px;
+    }
+
+    .contact-info {
+      background: var(--panel);
+      padding: 80px 56px;
+      border-right: 1px solid rgba(201,168,76,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .contact-item {}
+
+    .contact-item-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .contact-item-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .contact-item-value a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item-value a:hover { color: var(--gold); }
+
+    .contact-item-sub {
+      margin-top: 6px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .contact-divider {
+      width: 40px;
+      height: 2px;
+      background: rgba(201,168,76,0.3);
+    }
+
+    /* MAP */
+    .contact-map {
+      position: relative;
+      background: var(--steel);
+      min-height: 500px;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      border: none;
+      filter: grayscale(30%) contrast(1.1);
+    }
+
+    /* FORM SECTION */
+    .form-section {
+      padding: 100px 48px;
+      background: var(--black);
+    }
+
+    .form-header {
+      max-width: 560px;
+      margin-bottom: 60px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 760px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group.full { grid-column: span 2; }
+
+    .form-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-input, .form-textarea {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      padding: 16px 20px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+
+    .form-textarea { resize: vertical; min-height: 140px; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 12px;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* WORKING HOURS */
+    .hours-band {
+      background: var(--panel);
+      padding: 60px 48px;
+      border-top: 1px solid rgba(201,168,76,0.08);
+      display: flex;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .hours-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      white-space: nowrap;
+      min-width: 220px;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      flex: 1;
+    }
+
+    .hours-item {
+      background: var(--steel);
+      padding: 20px 28px;
+    }
+
+    .hours-day {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .hours-time {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+    }
+
+    footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.1); padding: 48px 48px 32px; display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; }
+    .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.12em; }
+    .footer-brand span { color: var(--gold); }
+    .footer-tagline { margin-top: 8px; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.1em; }
+    .footer-nav { display: flex; gap: 32px; list-style: none; }
+    .footer-nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-bottom { padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 0.75rem; color: rgba(138,143,153,0.6); letter-spacing: 0.08em; }
+
+    .success-msg { display: none; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); padding: 16px 24px; margin-top: 20px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.1em; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .page-hero, .form-section, .hours-band { padding-left: 24px; padding-right: 24px; }
+      .contact-main { grid-template-columns: 1fr; }
+      .contact-info { padding: 60px 24px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: auto; }
+      .hours-band { flex-direction: column; gap: 32px; }
+      .hours-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 20px; padding: 40px 24px 24px; }
+      .footer-nav { flex-wrap: wrap; gap: 16px; }
+    }
+      .agentro-credit { background: var(--black); text-align: center; padding: 10px 48px 18px; font-size: 0.7rem; color: rgba(138,143,153,0.45); letter-spacing: 0.06em; }
+    .agentro-credit a { color: rgba(201,168,76,0.55); text-decoration: none; transition: color 0.2s; }
+    .agentro-credit a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">SAR-BUD <span>Sarnecki</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="realizacje.html">Realizacje</a></li>
+      <li><a href="uslugi.html">Usługi</a></li>
+      <li><a href="kontakt.html" class="active">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-tag">Skontaktuj się</p>
+    <h1 class="page-title">Kontakt</h1>
+    <p class="page-sub">Zadzwoń, napisz lub odwiedź nas w Manieckach. Chętnie omówimy Twój projekt i przygotujemy bezpłatną wycenę.</p>
+  </div>
+
+  <div class="contact-main">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-item-label">Właściciel</div>
+        <div class="contact-item-value">Michał Sarnecki</div>
+        <div class="contact-item-sub">SAR-BUD · Firma budowlana · Manieczki k. Śremu</div>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-item">
+        <div class="contact-item-label">Telefon</div>
+        <div class="contact-item-value"><a href="tel:+48693839952">693 839 952</a></div>
+        <div class="contact-item-sub">Dostępny pn–pt 7:00–17:00, sob 8:00–14:00</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">E-mail</div>
+        <div class="contact-item-value" style="font-size:1.2rem;"><a href="mailto:sarna257@wp.pl">sarna257@wp.pl</a></div>
+        <div class="contact-item-sub">Odpowiadamy w ciągu 24 godzin</div>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-item">
+        <div class="contact-item-label">Siedziba firmy</div>
+        <div class="contact-item-value" style="font-size:1.2rem;">Osiedle Słowiańskie 102<br>63-112 Manieczki</div>
+        <div class="contact-item-sub">Gmina Śrem · Wielkopolska</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Obszar działania</div>
+        <div class="contact-item-sub" style="font-size:0.95rem; line-height:1.8;">Śrem i okolice<br>Kościan i okolice<br>Poznań i okolice<br>Do 50 km od siedziby</div>
+      </div>
+    </div>
+
+    <div class="contact-map">
+      <!-- 
+        WAŻNE: Zastąp poniższy src swoim linkiem Google Maps Embed dla adresu siedziby.
+        Jak to zrobić:
+        1. Wejdź na maps.google.com
+        2. Znajdź swoją lokalizację (np. "Śrem, Polska")
+        3. Kliknij Udostępnij → Umieść mapę
+        4. Skopiuj kod <iframe> i wklej tutaj
+      -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.0!2d17.1234!3d52.0123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47008d!2sManieczki%2C+Polska!5e0!3m2!1spl!2spl!4v1700000000000&q=Manieczki+Osiedle+Słowiańskie+102"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="SAR-BUD Michał Sarnecki – Manieczki, Osiedle Słowiańskie 102">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <section class="form-section">
+    <div class="form-header">
+      <p class="page-tag">Napisz do nas</p>
+      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.2rem,4vw,3.5rem); letter-spacing:0.04em; line-height:1; color:var(--white);">Bezpłatna wycena projektu</h2>
+      <p style="margin-top:16px; font-size:0.95rem; font-weight:300; color:var(--muted); line-height:1.7;">Opisz krótko czego potrzebujesz – skontaktujemy się i omówimy szczegóły.</p>
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label class="form-label" for="imie">Imię i nazwisko</label>
+        <input class="form-input" id="imie" type="text" placeholder="Jan Kowalski" />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="tel">Telefon</label>
+        <input class="form-input" id="tel" type="tel" placeholder="+48 000 000 000" />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">E-mail</label>
+        <input class="form-input" id="email" type="email" placeholder="email@example.com" />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="usluga">Rodzaj usługi</label>
+        <select class="form-input" id="usluga">
+          <option value="">Wybierz...</option>
+          <option>Budowa domu</option>
+          <option>Remont</option>
+          <option>Wykończenie wnętrz</option>
+          <option>Prace zewnętrzne / elewacja</option>
+          <option>Inne</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label class="form-label" for="wiadomosc">Opis projektu</label>
+        <textarea class="form-textarea" id="wiadomosc" placeholder="Opisz krótko swój projekt – lokalizacja, zakres prac, orientacyjny termin..."></textarea>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="sendForm()">Wyślij zapytanie →</button>
+    <div class="success-msg" id="successMsg">✓ Wiadomość wysłana! Odezwiemy się w ciągu 24 godzin.</div>
+  </section>
+
+  <!-- HOURS -->
+  <div class="hours-band">
+    <div class="hours-title">Godziny<br>pracy</div>
+    <div class="hours-grid">
+      <div class="hours-item">
+        <div class="hours-day">Poniedziałek – Piątek</div>
+        <div class="hours-time">7:00 – 17:00</div>
+      </div>
+      <div class="hours-item">
+        <div class="hours-day">Sobota</div>
+        <div class="hours-time">8:00 – 14:00</div>
+      </div>
+      <div class="hours-item">
+        <div class="hours-day">Niedziela</div>
+        <div class="hours-time">Nieczynne</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <div class="footer-brand">SAR-BUD <span>Sarnecki</span></div>
+      <div class="footer-tagline">SAR-BUD Michał Sarnecki · Manieczki k. Śremu</div>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="realizacje.html">Realizacje</a></li>
+      <li><a href="uslugi.html">Usługi</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </footer>
+  <div class="footer-bottom">© 2025 SAR-BUD Michał Sarnecki · Manieczki, Śrem · Wszystkie prawa zastrzeżone</div>
+  <div class="agentro-credit">Strona stworzona przez <a href="https://agentro.pl" target="_blank" rel="noopener">Agentro.pl</a></div>
+
+  <script>
+    function sendForm() {
+      const imie = document.getElementById('imie').value.trim();
+      const tel = document.getElementById('tel').value.trim();
+      if (!imie || !tel) {
+        alert('Proszę podać imię i numer telefonu.');
+        return;
+      }
+      document.getElementById('successMsg').style.display = 'block';
+      // Tu możesz podpiąć np. Formspree lub własne API
+    }
+  </script>
+</body>
+</html>

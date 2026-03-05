@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usługi – SAR-BUD Michał Sarnecki | Firma Budowlana Śrem, Gostyń, Środa Wielkopolska</title>
+  <meta name="description" content="Oferujemy kompleksowe usługi budowlane: budowa domów, remonty, wykończenia wnętrz, elewacje, fundamenty. Działamy w Śremie, Gostyniu i Środzie Wielkopolskiej." />
+  <meta name="keywords" content="usługi budowlane Śrem, budowa domów Śrem, remonty Gostyń, wykończenia wnętrz Środa Wielkopolska, tynkowanie Śrem, układanie płytek Śrem, elewacje Gostyń, firma budowlana Śrem" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a; --dark: #111318; --panel: #16191f; --steel: #1e2229;
+      --gold: #c9a84c; --gold-light: #e0be7a; --white: #f5f3ef; --muted: #8a8f99;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 72px; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    .page-hero { padding: 160px 48px 80px; background: var(--dark); border-bottom: 1px solid rgba(201,168,76,0.1); position: relative; overflow: hidden; }
+    .page-hero::after { content: 'USŁUGI'; position: absolute; right: -20px; bottom: -20px; font-family: 'Bebas Neue', sans-serif; font-size: 14rem; letter-spacing: -0.04em; color: rgba(201,168,76,0.04); pointer-events: none; line-height: 1; }
+    .page-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 7rem); letter-spacing: 0.03em; line-height: 0.95; }
+    .page-sub { margin-top: 20px; max-width: 520px; font-size: 1rem; font-weight: 300; line-height: 1.8; color: var(--muted); }
+
+    /* SERVICES */
+    .services { padding: 100px 48px; }
+
+    .service-block {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 60px 0;
+      position: relative;
+    }
+
+    .service-block:first-child { padding-top: 0; }
+    .service-block:last-child { border-bottom: none; }
+
+    .service-block-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: rgba(201,168,76,0.12);
+      line-height: 1;
+      letter-spacing: 0.05em;
+      padding-right: 40px;
+    }
+
+    .service-block-content {}
+
+    .service-block-icon { font-size: 2rem; margin-bottom: 16px; }
+
+    .service-block-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .service-block-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 28px;
+    }
+
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .service-list li {
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--gold-light);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+    }
+
+    /* WHY US */
+    .why { background: var(--panel); padding: 100px 48px; border-top: 1px solid rgba(201,168,76,0.08); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .why-card {
+      background: var(--steel);
+      padding: 40px 32px;
+      border-top: 3px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    .why-card:hover { border-color: var(--gold); }
+
+    .why-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+
+    .why-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .why-desc { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: var(--muted); }
+
+    /* CTA */
+    .cta-band { background: var(--gold); padding: 80px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .cta-band-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); color: var(--black); letter-spacing: 0.04em; line-height: 1; }
+    .cta-band-sub { margin-top: 8px; font-size: 0.95rem; color: rgba(10,10,10,0.65); }
+    .btn-dark { display: inline-flex; align-items: center; gap: 10px; background: var(--black); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 18px 40px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
+    .btn-dark:hover { background: #1a1a1a; }
+
+    footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.1); padding: 48px 48px 32px; display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; }
+    .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.12em; }
+    .footer-brand span { color: var(--gold); }
+    .footer-tagline { margin-top: 8px; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.1em; }
+    .footer-nav { display: flex; gap: 32px; list-style: none; }
+    .footer-nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-bottom { padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 0.75rem; color: rgba(138,143,153,0.6); letter-spacing: 0.08em; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .page-hero, .services, .why { padding-left: 24px; padding-right: 24px; }
+      .service-block { grid-template-columns: 1fr; }
+      .service-block-num { font-size: 3rem; padding-right: 0; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .cta-band { flex-direction: column; padding: 60px 24px; }
+      footer { flex-direction: column; gap: 20px; padding: 40px 24px 24px; }
+      .footer-nav { flex-wrap: wrap; gap: 16px; }
+    }
+    @media (max-width: 600px) {
+      .why-grid { grid-template-columns: 1fr; }
+    }
+      .agentro-credit { background: var(--black); text-align: center; padding: 10px 48px 18px; font-size: 0.7rem; color: rgba(138,143,153,0.45); letter-spacing: 0.06em; }
+    .agentro-credit a { color: rgba(201,168,76,0.55); text-decoration: none; transition: color 0.2s; }
+    .agentro-credit a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">SAR-BUD <span>Sarnecki</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="realizacje.html">Realizacje</a></li>
+      <li><a href="uslugi.html" class="active">Usługi</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-tag">Co robimy</p>
+    <h1 class="page-title">Usługi</h1>
+    <p class="page-sub">Kompleksowa obsługa budowlana na terenie Śremu, powiatu gostyńskiego i okolic Środy Wielkopolskiej. Od projektu po klucze.</p>
+  </div>
+
+  <section class="services">
+    <div class="service-block">
+      <div class="service-block-num">01</div>
+      <div class="service-block-content">
+        <div class="service-block-icon">🏗️</div>
+        <h2 class="service-block-title">Budowa domów – stan surowy otwarty</h2>
+        <p class="service-block-desc">SAR-BUD specjalizuje się w kompleksowej budowie domów jednorodzinnych od podstaw. Realizujemy wszystkie prace murarskie i konstrukcyjne zgodnie z dokumentacją techniczną – w sposób uporządkowany, zaplanowany i z pełną kontrolą jakości na każdym etapie. Efektem jest solidna, trwała konstrukcja gotowa do dalszych prac.</p>
+        <ul class="service-list">
+          <li>Fundamenty i izolacje</li>
+          <li>Ściany nośne i konstrukcyjne</li>
+          <li>Stropy żelbetowe</li>
+          <li>Słupy i belki</li>
+          <li>Prace murarskie wszelkiego rodzaju</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-block-num">02</div>
+      <div class="service-block-content">
+        <div class="service-block-icon">🪟</div>
+        <h2 class="service-block-title">Stan surowy zamknięty</h2>
+        <p class="service-block-desc">Realizujemy budowy domów do stanu surowego zamkniętego – wykonujemy ściany, stropy i konstrukcję dachową, a następnie montujemy okna i drzwi zewnętrzne zgodnie z projektem budowlanym. Dbamy o szczelność i trwałość zastosowanych rozwiązań. Budynek wychodzi z naszych rąk zabezpieczony i gotowy do prac wykończeniowych.</p>
+        <ul class="service-list">
+          <li>Więźba dachowa</li>
+          <li>Pokrycie dachu</li>
+          <li>Montaż okien i drzwi zewnętrznych</li>
+          <li>Ściany działowe</li>
+          <li>Budynek szczelny i zabezpieczony</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-block-num">03</div>
+      <div class="service-block-content">
+        <div class="service-block-icon">🔨</div>
+        <h2 class="service-block-title">Kompleksowe wykończenia wnętrz</h2>
+        <p class="service-block-desc">Wykonujemy pełne wykończenia wnętrz domów i mieszkań – zarówno nowych obiektów, jak i modernizowanych. Każde pomieszczenie realizujemy z dbałością o funkcjonalność i estetykę, ściśle według ustaleń z klientem. Stosujemy sprawdzone materiały i pracujemy z dużą dokładnością, aż do uzyskania wnętrza gotowego do komfortowego użytkowania.</p>
+        <ul class="service-list">
+          <li>Tynkowanie gipsowe i cementowo-wapienne</li>
+          <li>Układanie płytek i gresów</li>
+          <li>Malowanie i tapetowanie</li>
+          <li>Podłogi – panele, wylewki, parkiet</li>
+          <li>Sufity podwieszane i zabudowy GK</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-block-num">04</div>
+      <div class="service-block-content">
+        <div class="service-block-icon">🧱</div>
+        <h2 class="service-block-title">Prace ogólnobudowlane i zewnętrzne</h2>
+        <p class="service-block-desc">Realizujemy szeroki zakres prac ogólnobudowlanych i zewnętrznych. Każde zlecenie traktujemy indywidualnie – zapewniamy sprawną koordynację na placu budowy, pilnujemy odpowiedniej kolejności etapów i terminowości. Klienci mogą liczyć na fachowe doradztwo na każdym kroku współpracy.</p>
+        <ul class="service-list">
+          <li>Elewacje i ocieplenia (styropian, wełna)</li>
+          <li>Ogrodzenia i podmurówki z bloczków</li>
+          <li>Kostka brukowa – podjazdy i chodniki</li>
+          <li>Tarasy i schody zewnętrzne</li>
+          <li>Termoizolacja budynków</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <p class="page-tag">Dlaczego my</p>
+    <h2 class="page-title" style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4.5rem); letter-spacing:0.04em; line-height:1;">Wybierz solidnych fachowców</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon">📋</span>
+        <div class="why-title">Przejrzysta wycena</div>
+        <p class="why-desc">Bezpłatna wycena przed każdym zleceniem. Bez ukrytych kosztów i niespodzianek w trakcie prac.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">⏱️</span>
+        <div class="why-title">Terminowość</div>
+        <p class="why-desc">Szanujemy czas naszych klientów. Ustalamy realne terminy i ich dotrzymujemy.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🏆</span>
+        <div class="why-title">Doświadczenie</div>
+        <p class="why-desc">Wieloletnie doświadczenie w budowie domów jednorodzinnych i kompleksowych wykończeniach. Setki zrealizowanych inwestycji.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🤝</span>
+        <div class="why-title">Lokalność</div>
+        <p class="why-desc">Mamy siedzibę w Manieckach koło Śremu. Znamy lokalne warunki i dojeżdżamy do klientów w Śremie, Kościanie, Poznaniu i okolicach.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div>
+      <div class="cta-band-title">Zleć nam swój projekt już dziś.</div>
+      <div class="cta-band-sub">Bezpłatna wycena – odpowiadamy w ciągu 24 godzin.</div>
+    </div>
+    <a href="kontakt.html" class="btn-dark">Kontakt →</a>
+  </div>
+
+  <footer>
+    <div>
+      <div class="footer-brand">SAR-BUD <span>Sarnecki</span></div>
+      <div class="footer-tagline">SAR-BUD Michał Sarnecki · Manieczki k. Śremu</div>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="realizacje.html">Realizacje</a></li>
+      <li><a href="uslugi.html">Usługi</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </footer>
+  <div class="footer-bottom">© 2025 SAR-BUD Michał Sarnecki · Manieczki, Śrem · Wszystkie prawa zastrzeżone</div>
+  <div class="agentro-credit">Strona stworzona przez <a href="https://agentro.pl" target="_blank" rel="noopener">Agentro.pl</a></div>
+
+</body>
+</html>

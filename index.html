@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAR-BUD Michał Sarnecki – Firma Budowlana Śrem | Gostyń | Środa Wielkopolska</title>
+  <meta name="description" content="Michał Sarnecki – profesjonalna firma budowlana działająca w Śremie, Gostyniu i okolicach Środy Wielkopolskiej. Budowa domów, remonty, wykończenia. Zaufaj ekspertom." />
+  <meta name="keywords" content="firma budowlana Śrem, budowa domu Śrem, remont Śrem, firma budowlana Gostyń, firma budowlana Środa Wielkopolska, Michał Sarnecki, usługi budowlane Śrem, wykończenie wnętrz Śrem, budowlana Wielkopolska" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="SAR-BUD Michał Sarnecki – Firma Budowlana Śrem" />
+  <meta property="og:description" content="Profesjonalna firma budowlana Michała Sarneckiego. Działamy w Śremie, Gostyniu i okolicach Środy Wielkopolskiej." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #111318;
+      --panel: #16191f;
+      --steel: #1e2229;
+      --gold: #c9a84c;
+      --gold-light: #e0be7a;
+      --white: #f5f3ef;
+      --muted: #8a8f99;
+      --accent: #c9a84c;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 72px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 80px;
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero-bg.JPG');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+      filter: brightness(0.38) saturate(0.7);
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(10,10,10,0.97) 0%,
+        rgba(10,10,10,0.55) 45%,
+        rgba(10,10,10,0.2) 100%
+      );
+    }
+
+    .hero-number {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22rem;
+      letter-spacing: -0.05em;
+      color: rgba(201,168,76,0.04);
+      line-height: 1;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .hero-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 10vw, 10rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.5s forwards;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-sub {
+      margin-top: 32px;
+      max-width: 500px;
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.7s forwards;
+    }
+
+    .hero-cta {
+      margin-top: 48px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.9s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-secondary:hover { color: var(--gold); border-color: var(--gold); }
+
+    .hero-bar {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 4px;
+      height: 120px;
+      transform: translateY(-50%);
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    }
+
+    /* STATS */
+    .stats {
+      background: var(--panel);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat {
+      padding: 48px 40px;
+      border-right: 1px solid rgba(201,168,76,0.1);
+      text-align: center;
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-label {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    /* SECTION */
+    section {
+      padding: 120px 48px;
+    }
+
+    .section-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--steel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      border: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .about-accent-box {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      width: 160px;
+      height: 160px;
+      border: 2px solid var(--gold);
+      z-index: -1;
+    }
+
+    .about-signature {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .about-signature-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+
+    .about-signature-title {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .about-signature-line {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    /* SERVICES PREVIEW */
+    .services-preview {
+      background: var(--dark);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .service-card {
+      background: var(--panel);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover { background: var(--steel); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .services-cta {
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    /* REALIZACJE PREVIEW */
+    .realizacje-preview { background: var(--black); }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 4px;
+      margin-top: 60px;
+    }
+
+    .preview-item {
+      background: var(--steel);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+    }
+
+    .preview-item:first-child {
+      grid-row: span 2;
+    }
+
+    .preview-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .preview-item:hover img { transform: scale(1.05); }
+
+    .preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.6), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .preview-item:hover .preview-overlay { opacity: 1; }
+
+    .preview-cta {
+      margin-top: 40px;
+      text-align: right;
+    }
+
+    /* REGION */
+    .region {
+      background: var(--panel);
+      padding: 80px 48px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+    }
+
+    .region-text .section-title { margin-bottom: 12px; }
+
+    .region-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .region-tag-item {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      color: var(--gold-light);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+    }
+
+    .region-map-placeholder {
+      flex: 0 0 420px;
+      height: 280px;
+      background: var(--steel);
+      border: 1px solid rgba(201,168,76,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* CTA BAND */
+    .cta-band {
+      background: var(--gold);
+      padding: 80px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .cta-band-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--black);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .cta-band-sub {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: rgba(10,10,10,0.65);
+    }
+
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 18px 40px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .btn-dark:hover { background: #1a1a1a; }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding: 48px 48px 32px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.12em; }
+    .footer-brand span { color: var(--gold); }
+
+    .footer-tagline {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer-nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      padding-top: 24px;
+      margin-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(138,143,153,0.6);
+      letter-spacing: 0.08em;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      section, .hero { padding-left: 24px; padding-right: 24px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image-wrap { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .preview-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .preview-item:first-child { grid-row: auto; }
+      .region { flex-direction: column; }
+      .region-map-placeholder { flex: none; width: 100%; }
+      .cta-band { flex-direction: column; }
+      footer { flex-direction: column; gap: 20px; }
+      .footer-nav { flex-wrap: wrap; gap: 16px; }
+    }
+      .agentro-credit { background: var(--black); text-align: center; padding: 10px 48px 18px; font-size: 0.7rem; color: rgba(138,143,153,0.45); letter-spacing: 0.06em; }
+    .agentro-credit a { color: rgba(201,168,76,0.55); text-decoration: none; transition: color 0.2s; }
+    .agentro-credit a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">SAR-BUD <span>Sarnecki</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="realizacje.html">Realizacje</a></li>
+      <li><a href="uslugi.html">Usługi</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-bar"></div>
+    <div class="hero-number">2024</div>
+    <p class="hero-tag">Firma budowlana · Śrem · Kościan · Poznań</p>
+    <h1 class="hero-title">
+      Budujemy<br>
+      <em>z pasją</em>
+    </h1>
+    <p class="hero-sub">SAR-BUD Michał Sarnecki – solidny wykonawca z Manieczkek koło Śremu. Budujemy domy od fundamentu, realizujemy stany surowe i kompleksowe wykończenia. Działamy w promieniu 50 km od siedziby.</p>
+    <div class="hero-cta">
+      <a href="kontakt.html" class="btn-primary">Bezpłatna wycena →</a>
+      <a href="realizacje.html" class="btn-secondary">Zobacz realizacje</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">15+</div>
+      <div class="stat-label">Lat doświadczenia</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">200+</div>
+      <div class="stat-label">Zrealizowanych projektów</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Powiaty obsługiwane</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Zadowolonych klientów</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="about-grid">
+      <div class="about-image-wrap">
+        <div class="about-image-placeholder">ZDJĘCIE FIRMOWE</div>
+        <div class="about-accent-box"></div>
+      </div>
+      <div>
+        <p class="section-tag">O firmie</p>
+        <h2 class="section-title">Profesjonalizm w każdym detalu</h2>
+        <p class="section-body">
+          SAR-BUD to firma budowlana z siedzibą w Manieckach koło Śremu, specjalizująca się w kompleksowej budowie domów jednorodzinnych – od stanu surowego otwartego po pełne wykończenie wnętrz. Każde zlecenie realizujemy z dużą starannością i zgodnie z projektem, dbając o trwałość i bezpieczeństwo konstrukcji.
+        </p>
+        <p class="section-body" style="margin-top:20px;">
+          Obsługujemy inwestorów indywidualnych oraz firmy w Śremie, Kościanie, Poznaniu i okolicach – w promieniu do 50 km od siedziby. Priorytetem jest dla nas terminowość, transparentna wycena i pełna satysfakcja klienta.
+        </p>
+        <div class="about-signature">
+          <div class="about-signature-line"></div>
+          <div>
+            <div class="about-signature-name">Michał Sarnecki</div>
+            <div class="about-signature-title" style="margin-top:4px;">Właściciel i kierownik budowy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="services-preview">
+    <div style="text-align:center; margin-bottom: 0;">
+      <p class="section-tag" style="justify-content:center; display:flex;">Zakres prac</p>
+      <h2 class="section-title" style="text-align:center;">Nasze usługi</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🏗️</span>
+        <div class="service-name">Budowa domów</div>
+        <p class="service-desc">Kompleksowa budowa od fundamentu po dach – domy jednorodzinne, szeregowe i małe obiekty użytkowe w Śremie i okolicach.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔨</span>
+        <div class="service-name">Remonty i przebudowy</div>
+        <p class="service-desc">Remonty mieszkań, domów i obiektów komercyjnych. Modernizacje i przebudowy zgodne z obowiązującymi normami budowlanymi.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🪟</span>
+        <div class="service-name">Wykończenia wnętrz</div>
+        <p class="service-desc">Tynkowanie, kładzenie płytek, malowanie, podłogi i sufity podwieszane. Kompleksowe wykończenie pod klucz.</p>
+      </div>
+    </div>
+    <div class="services-cta">
+      <a href="uslugi.html" class="btn-primary">Wszystkie usługi →</a>
+    </div>
+  </section>
+
+  <!-- REALIZACJE PREVIEW -->
+  <section class="realizacje-preview">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+      <div>
+        <p class="section-tag">Portfolio</p>
+        <h2 class="section-title">Nasze realizacje</h2>
+      </div>
+    </div>
+    <div class="preview-grid">
+      <div class="preview-item"><img src="3ff13ba1-fb6f-46c9-bb6e-2a5d67e3c044.JPG" alt="Budowa domu jednorodzinnego – ogrodzenie i podjazd z kostki brukowej" /><div class="preview-overlay"></div></div>
+      <div class="preview-item"><img src="2ed63e3a-052b-42e9-b042-bf7786117714.JPG" alt="Budowa domu – słup żelbetowy i murowanie ścian" /><div class="preview-overlay"></div></div>
+      <div class="preview-item"><img src="93aedd5f-bc2d-46ec-9693-28e2c77a75d3_2.JPG" alt="Murowanie ścian z cegły – stan surowy" /><div class="preview-overlay"></div></div>
+      <div class="preview-item"><img src="9ade22d4-1401-484d-9bd6-9d38da4f579e.JPG" alt="Elewacja budynku – tynkowanie i wykończenie zewnętrzne" /><div class="preview-overlay"></div></div>
+      <div class="preview-item"><img src="214cb63e-08c8-4079-85c2-ab7121770706.JPG" alt="Termoizolacja i tynkowanie elewacji domu" /><div class="preview-overlay"></div></div>
+    </div>
+    <div class="preview-cta">
+      <a href="realizacje.html" class="btn-secondary">Zobacz wszystkie realizacje →</a>
+    </div>
+  </section>
+
+  <!-- REGION -->
+  <div class="region">
+    <div class="region-text">
+      <p class="section-tag">Zasięg działania</p>
+      <h2 class="section-title">Działamy<br>w Wielkopolsce</h2>
+      <p class="section-body">Mamy siedzibę w Manieckach koło Śremu i realizujemy zlecenia w promieniu 50 km – jesteśmy na miejscu szybko i pracujemy sprawnie.</p>
+      <div class="region-tags">
+        <span class="region-tag-item">Śrem i okolice</span>
+        <span class="region-tag-item">Manieczki (siedziba)</span>
+        <span class="region-tag-item">Kościan i okolice</span>
+        <span class="region-tag-item">Poznań i okolice</span>
+        <span class="region-tag-item">Do 50 km od siedziby</span>
+      </div>
+    </div>
+    <div class="region-map-placeholder">MAPA OBSZARU DZIAŁANIA</div>
+  </div>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div>
+      <div class="cta-band-title">Masz projekt? Wycenimy go bezpłatnie.</div>
+      <div class="cta-band-sub">Skontaktuj się dziś – odpowiadamy w ciągu 24 godzin.</div>
+    </div>
+    <a href="kontakt.html" class="btn-dark">Kontakt →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-brand">SAR-BUD <span>Sarnecki</span></div>
+      <div class="footer-tagline">SAR-BUD Michał Sarnecki · Manieczki k. Śremu</div>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="realizacje.html">Realizacje</a></li>
+      <li><a href="uslugi.html">Usługi</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </footer>
+  <div class="footer-bottom">© 2025 SAR-BUD Michał Sarnecki · Manieczki, Śrem · Wszystkie prawa zastrzeżone</div>
+  <div class="agentro-credit">Strona stworzona przez <a href="https://agentro.pl" target="_blank" rel="noopener">Agentro.pl</a></div>
+
+</body>
+</html>
