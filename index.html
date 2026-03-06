@@ -13,6 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root {
       --black: #0a0a0a;
@@ -605,7 +607,18 @@
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+.region-map {
+  flex: 0 0 420px;
+  height: 280px;
+  border: 1px solid rgba(201,168,76,0.1);
+  overflow: hidden;
+}
 
+.region-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: var(--steel);
+}
     /* MOBILE */
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
@@ -618,7 +631,7 @@
       .preview-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
       .preview-item:first-child { grid-row: auto; }
       .region { flex-direction: column; }
-      .region-map-placeholder { flex: none; width: 100%; }
+      .region-map { flex: none; width: 100%; }
       .cta-band { flex-direction: column; }
       footer { flex-direction: column; gap: 20px; }
       .footer-nav { flex-wrap: wrap; gap: 16px; }
@@ -682,7 +695,7 @@
   <section>
     <div class="about-grid">
       <div class="about-image-wrap">
-        <div class="about-image-placeholder">ZDJĘCIE FIRMOWE</div>
+        <img src="firma.jpg" alt="Realizacja SAR-BUD – budowa domu i ogrodzenia" class="about-image">
         <div class="about-accent-box"></div>
       </div>
       <div>
@@ -767,7 +780,7 @@
         <span class="region-tag-item">Do 50 km od siedziby</span>
       </div>
     </div>
-    <div class="region-map-placeholder">MAPA OBSZARU DZIAŁANIA</div>
+    <div id="mapa-obszaru" class="region-map"></div>
   </div>
 
   <!-- CTA BAND -->
@@ -794,6 +807,30 @@
   </footer>
   <div class="footer-bottom">© 2025 SAR-BUD Michał Sarnecki · Manieczki, Śrem · Wszystkie prawa zastrzeżone</div>
   <div class="agentro-credit">Strona stworzona przez <a href="https://agentro.pl" target="_blank" rel="noopener">Agentro.pl</a></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const srem = [52.0887, 17.0151];
 
+    const mapa = L.map('mapa-obszaru', {
+      scrollWheelZoom: false
+    }).setView(srem, 9);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(mapa);
+
+    L.circle(srem, {
+      color: '#c9a84c',
+      fillColor: '#c9a84c',
+      fillOpacity: 0.18,
+      radius: 50000
+    }).addTo(mapa);
+
+    L.marker(srem).addTo(mapa)
+      .bindPopup('Śrem – centrum obszaru działania');
+
+    setTimeout(() => mapa.invalidateSize(), 200);
+  });
+</script>
 </body>
 </html>
